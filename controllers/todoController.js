@@ -28,7 +28,7 @@ const addTodo=(req,res)=>{
         task:req.body.task,
         id:arr.length+1
     };
-    arr.push(todo);
+    arr=[...arr,todo]
     res.status(201).json({
         message:"success",
         total:arr.length,

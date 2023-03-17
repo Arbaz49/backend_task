@@ -1,5 +1,6 @@
 
 let x=100
+
 //get data
 const getvariable=(req,res)=>{
 res.send({
@@ -18,10 +19,11 @@ const updatevariable=(req,res)=>{
 
         })
     }
+    x=x+value
 
     res.status(200).json({
         message:"success",
-        variable:Number(x)+Number(value)
+        variable:x
     })
 }
 

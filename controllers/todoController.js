@@ -11,6 +11,8 @@ let arr=[
     }
 ]
 
+
+//get data
 const getTodo=(req,res)=>{
     res.status(200).json({
         message:"success",
@@ -19,6 +21,8 @@ const getTodo=(req,res)=>{
     })
 }
 
+
+//add todo
 const addTodo=(req,res)=>{
     const todo={
         task:req.body.task,
@@ -31,6 +35,8 @@ const addTodo=(req,res)=>{
         todo:arr
     })
 }
+
+//delete todo
 const deleteTodo=(req,res)=>{
     let id=req.params.index;
     let element=arr[id]

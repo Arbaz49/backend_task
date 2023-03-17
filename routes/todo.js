@@ -1,6 +1,5 @@
 import express from 'express';
 import { getTodo,deleteTodo,addTodo } from '../controllers/todoController.js';
-// import { deletevariable, getvariable, updatevariable } from '../controllers/calculator.js';
 
 
 const router=express.Router();

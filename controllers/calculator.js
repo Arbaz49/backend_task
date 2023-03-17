@@ -1,5 +1,6 @@
 
 let x=100
+//get data
 const getvariable=(req,res)=>{
 res.send({
     message:"success",
@@ -7,6 +8,8 @@ res.send({
 })
 }
 
+
+//update data
 const updatevariable=(req,res)=>{
     const value=req.body.value;
     if(!value){
@@ -22,6 +25,8 @@ const updatevariable=(req,res)=>{
     })
 }
 
+
+//delete data
 const deletevariable=(req,res)=>{
     res.status(200).json({
         message:"deleted successfully",

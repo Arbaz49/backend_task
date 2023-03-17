@@ -7,7 +7,7 @@ let arr=[
         id:"2"
     }, {
         task:"sleep",
-        id:"2"
+        id:"3"
     }
 ]
 

@@ -30,9 +30,7 @@ const updatevariable=(req,res)=>{
 const deletevariable=(req,res)=>{
     res.status(200).json({
         message:"deleted successfully",
-
     })
-
 }
 
 export {getvariable,updatevariable,deletevariable}

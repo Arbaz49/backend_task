@@ -2,6 +2,9 @@ import express from 'express';
 import cors from 'cors';
 import calculatorRouter from "./routes/calculator.js"
 import todoRouter from "./routes/todo.js"
+import userRouter from "./routes/Auth.js"
+import { Protect } from './controllers/UserController.js';
+
 
 const app=express();
 app.use(express.json());
@@ -13,8 +16,10 @@ app.get("/",(req,res)=>{
     })
 })
 
-app.use("/calculator",calculatorRouter)
-app.use("/todo",todoRouter)
+app.use("/calculator",Protect,calculatorRouter);
+app.use("/todo",Protect,todoRouter);
+app.use("/user",userRouter);
+
 
 
 app.listen(8000,()=>{

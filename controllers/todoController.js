@@ -14,6 +14,7 @@ let arr=[
 
 //get data
 const getTodo=(req,res)=>{
+    // console.log(req.user)
     res.status(200).json({
         message:"success",
         total:arr.length,

@@ -26,7 +26,7 @@ const Register=(req,res)=>{
         user
     })
 }
-const Protect=(req,res,next)=>{
+const Protect=async(req,res,next)=>{
         // console.log("hey",req.headers);
         let authToken = "";
         if (req.headers?.token?.startsWith("Bearer ")) {
@@ -37,15 +37,22 @@ const Protect=(req,res,next)=>{
                 message: "Invalid credintials login again"
             })
         }
-        const verified = jwt.verify(authToken,"secret");
-        const user=users.filter((el)=>el.id==verified.id)[0];
-        if(!user){
-            res.send({
-                message: "not found"
-            })
-        }
-        req.user = JSON.stringify(user);
-        next();
+
+        try {
+            var decoded = jwt.verify(authToken, 'secret');
+            console.log(decoded);
+            const user=users.filter((el)=>el.id==decoded.id)[0];
+                        if(!user){
+                            res.send({
+                                message: "not found"
+                            })
+                        }
+                        req.user = JSON.stringify(user);
+                        next();
+          } catch(err) {
+            // err
+            res.status(401).send(err)
+          }         
 }
 
 const Login=(req,res)=>{
